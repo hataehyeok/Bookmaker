@@ -1,5 +1,5 @@
 
 
 ```
-python main.py folder_name output_name
+python3 main.py ttest test_out.pdf 3
 ```

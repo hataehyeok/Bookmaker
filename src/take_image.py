@@ -14,6 +14,7 @@ def capture_specific_area_with_screencapture(page_count, save_folder):
 
     if not os.path.exists(save_folder):
         os.makedirs(save_folder)
+        print(f"Note: The folder '{save_folder}' was not found, so it has been created.")
 
     for i in range(page_count):
         filename = f"{save_folder}/page_{i+1}.png"
