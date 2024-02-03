@@ -1,24 +1,17 @@
-from PIL import Image
-import os
-from PyPDF2 import PdfMerger
+import argparse
+import src.make_pdf as make_pdf
+import src.take_image as take_image
 
-def images_to_pdf(image_folder, output_pdf):
-    image_files = [f for f in os.listdir(image_folder) if f.endswith('.png') or f.endswith('.jpg')]
-    image_files.sort()
+def main():
+    parser = argparse.ArgumentParser(description='Capture Ebook\'s images and create a PDF.')
+    parser.add_argument('folder_name', type=str, help='The name of the folder where images will be saved.')
+    parser.add_argument('output_name', type=str, help='The name of the output PDF file.')
 
-    merger = PdfMerger()
+    args = parser.parse_args()
+    args.output_name = args.output_name + '.pdf'
 
-    for image_file in image_files:
-        image_path = os.path.join(image_folder, image_file)
-        image = Image.open(image_path)
-        pdf_path = os.path.splitext(image_path)[0] + '.pdf'
-        image.save(pdf_path, "PDF", resolution=100.0)
+    take_image.capture_specific_area_with_screencapture(131, args.folder_name)
+    make_pdf.images_to_pdf(args.folder_name, args.output_name)
 
-        merger.append(pdf_path)
-
-    merger.write(output_pdf)
-    merger.close()
-
-
-images_to_pdf('./rc_rest', 'output.pdf')
-
+if __name__ == '__main__':
+    main()
