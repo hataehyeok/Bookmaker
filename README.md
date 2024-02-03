@@ -2,30 +2,32 @@
 
 ## Introduction
 
-This project is for making pdf file from purchased ebook through taking screen capture on ebook viewer in which created pdf file is followed the copyright law so user have to only use pdf file for your study.
+Bookmaker is a tool designed to create PDF files from purchased ebooks by taking screenshots of the ebook viewer. This tool is developed with the intention of aiding students in their studies by converting ebooks into more accessible PDF formats. The created PDF files are intended for personal use only, in compliance with copyright laws, ensuring that users utilize the PDFs solely for their study purposes.
 
 ## Motivation
 
-Ebook viewer is discomfort in study because lineing, notetaking, bookmark is not supported and most students is already familier on ipad app such as [Goodnote](https://www.goodnotes.com/). When student wants to use their notetaking app for studying their ebook, they can use this program for make pdf book from ebook viewer.
+Many ebook viewers lack essential features for studying, such as highlighting, note-taking, and bookmarking. These limitations can hinder the learning experience, especially for students accustomed to using comprehensive note-taking apps like [GoodNotes](https://www.goodnotes.com/) on their iPads. Bookmaker addresses this issue by allowing students to convert their ebooks into PDF format, enabling them to study more effectively using their preferred apps.
 
 ## Installation
 
-To run Bookmaker on your local machine, you need to have Python installed. Follow these steps:
+To get started with Bookmaker on your local machine, ensure you have Python installed. Follow these steps to set up the project:
 
-1. Clone the repository
+1. **Clone the repository:**
 
     ```bash
     git clone https://github.com/hataehyeok/Bookmaker.git
     cd Bookmaker
     ```
 
-2. Install the required Python packages
+2. **Install the required Python packages:**
 
     ```bash
     pip install -r requirements.txt
     ```
 
-3. Setting page's pixel size in ebook view (IMPORTANT)
+3. **Configure the page pixel size in the ebook viewer (IMPORTANT):**
+
+    The `src/take_image.py` file contains code for setting the page pixel size, tailored to a 14-inch MacBook Pro (2021), viewing a single page in the viewer app. If your setup differs, adjust the pixel size settings to match your monitor's scale and resolution:
 
     ```python
     # page pixel size
@@ -35,20 +37,20 @@ To run Bookmaker on your local machine, you need to have Python installed. Follo
     height = 944
     ```
 
-    Above code is in `src/take_image.py` and setting is based on my laptop MacBook Pro 14-inch, 2021 and viewing single page on viewer app. If you are not match my machine's environmnet, you have to set your own page pixel size and also have to take care your monitor scale and resolutions.
+4. **Run the program:**
 
-4. Run the program
+    Execute the program with the following command:
 
     ```bash
     python3 main.py <folder_name> <output_name> <page_count>
     ```
 
-    Like situation you take a photo, this program count ***three second*** and inside countdown, you should turn your screen to viewer's screen that open the ebook screen will be taken. And ebook page is certainly passed when press the right key. Maybe some authority acess is required.
+    Prepare your screen by switching to the ebook viewer within the three-second countdown. Pages can be turned by pressing the right arrow key. Note that some permissions may be required.
 
 ## Copyright Law
 
-MUST FOLLOW COPYLIGHT LAW. You only allowed when you using ebook's pdf version in your personal study don't share pdf to other person.
+It is imperative to FOLLOW COPYRIGHT LAW. The PDF versions of ebooks created using Bookmaker are allowed for personal study use only. Do not distribute or share the PDFs with others.
 
 ## Contact
 
-For any additional questions or comments, please contact the repository owner. Refer to my github profile, you can contact and question.
+Should you have any questions or comments, feel free to reach out to the repository owner. Visit my GitHub profile for contact information and inquiries.
