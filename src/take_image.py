@@ -17,7 +17,7 @@ def capture_specific_area_with_screencapture(page_count, save_folder):
         print(f"Note: The folder '{save_folder}' was not found, so it has been created.")
 
     for i in range(page_count):
-        filename = f"{save_folder}/page_{i+1}.png"
+        filename = f"{save_folder}/{i+1}.png"
 
         subprocess.run(["screencapture", "-x", "-R", f"{x_pos},{y_pos},{width},{height}", filename])
 
